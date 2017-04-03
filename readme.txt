@@ -1,4 +1,5 @@
-Test script has been developed to test BBC weather AUT, based on requirement.
+Test script developed to test BBC weather AUT, based on requirement.
+===========================================================
 
 Notes:
 1) Project "weather" created using visual studio 2015 and .Net 4.5.2
