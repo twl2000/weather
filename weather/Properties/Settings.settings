@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="weather.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="URL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.bbc.co.uk/weather</Value>
+    </Setting>
+    <Setting Name="location" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Reading</Value>
+    </Setting>
+    <Setting Name="specifiedHour" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2100</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
