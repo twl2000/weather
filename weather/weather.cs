@@ -109,10 +109,6 @@ namespace weather
             result += " Diff Pressure = " + diff_pressure + "\n";
             Console.WriteLine(result);
             WriteToFile(result);
-
-            //** force to fail
-            Assert.AreEqual(1,0);
-
             driver.Close();
 
         }
