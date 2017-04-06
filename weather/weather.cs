@@ -52,6 +52,7 @@ namespace weather
         }
 
         [Test]
+        [Category("cat1")]
         public void read_pressure1()
         {
             //************ ******************
@@ -114,6 +115,7 @@ namespace weather
         }
 
         [Test]
+        [Category("cat2")]
         public void read_temperature()
         {
             //************ ******************
