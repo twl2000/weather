@@ -52,7 +52,7 @@ namespace weather
         }
 
         [Test]
-        public void read_pressure()
+        public void read_pressure1()
         {
             //************ ******************
             string today_pressure;
