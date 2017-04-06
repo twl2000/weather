@@ -101,11 +101,72 @@ namespace weather
             tomorrow_pressure = page.ReadPressure(hr_position);
 
             //** Write results to console output and file (c:\temp\recordedPressure.txt)
-            diff_pressure = Int32.Parse(tomorrow_pressure) - Int32.Parse(today_pressure);
+            diff_pressure = int.Parse(tomorrow_pressure) - int.Parse(today_pressure);
             string result = DateTime.Now.ToString() + "\n";
             result += " Today Pressure = " + today_pressure + "\n";
             result += " Tomorrow Pressure = " + tomorrow_pressure + "\n";
             result += " Diff Pressure = " + diff_pressure + "\n";
+            Console.WriteLine(result);
+            WriteToFile(result);
+
+            driver.Close();
+
+        }
+
+        [Test]
+        public void read_temperature()
+        {
+            //************ ******************
+            string today_temperature;
+            string tomorrow_temperature;
+            int diff_temperature;
+            Boolean IsDateAfterTomorrow = false;
+
+            driver.Navigate().GoToUrl(baseURL);
+            //** Verify its BBC weather page. Type Reading and search
+            Assert.AreEqual("BBC Weather", driver.Title);
+            IsElementPresent(page.lblTitle);
+            page.txtlocation.Click();
+            page.txtlocation.SendKeys(location);
+            page.icnSearch.Click();
+            Wait_For_Element(page.linkReading, 3);
+            page.linkReading.Click();
+            IsElementPresent(page.lblReading);
+            page.icnShowTable.Click();
+
+            //** Find position of "2100" hour on table. If not found, use tomorrow's table
+            int hr_position = page.FindHourPosition(specifiedHour);
+            if (hr_position == -1)
+            {
+                //** Hour 21 not found in today page, so use value of tomorrow and date after tomorrow
+                page.icnTomorrow.Click();
+                Thread.Sleep(2000);
+                hr_position = page.FindHourPosition(specifiedHour);
+                IsDateAfterTomorrow = true;
+            }
+
+            //** Get today/tomorrow temperature reading based on hour position
+            today_temperature = page.ReadTemperature(hr_position);
+
+            //** Get tomorrow or day3 temperature
+            if (IsDateAfterTomorrow)
+            {
+                page.icnDay3.Click();
+            }
+            else
+            {
+                page.icnTomorrow.Click();
+            }
+            Thread.Sleep(2000);
+            hr_position = page.FindHourPosition(specifiedHour);
+            tomorrow_temperature = page.ReadTemperature(hr_position);
+
+            //** Write results to console output and file (c:\temp\recordedPressure.txt)
+            diff_temperature = int.Parse(tomorrow_temperature.Replace("°C","")) - int.Parse(today_temperature.Replace("°C", ""));
+            string result = DateTime.Now.ToString() + "\n";
+            result += " Today Temperature = " + today_temperature + "\n";
+            result += " Tomorrow Temperature = " + tomorrow_temperature + "\n";
+            result += " Diff Temperature = " + diff_temperature + "°C" + "\n";
             Console.WriteLine(result);
             WriteToFile(result);
 

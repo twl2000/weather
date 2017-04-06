@@ -82,5 +82,24 @@ namespace weather
             }
             return "null";
         }
+
+        //** Read Temperature of column with hour = 2100
+        public string ReadTemperature(int hr_position)
+        {
+            ICollection<IWebElement> rows = tblWeather.FindElements(By.XPath("//tr[@class='temperature']/td[contains(@class, 'value hours')]"));
+
+            int position = 0;
+            foreach (var row in rows)
+            {
+                if (position == hr_position)
+                {
+                    IWebElement temp = row.FindElement(By.XPath("//span[@class='content temp-range temp-10-12']/span[@class='units-values temperature-units-values']/span[@class='units-value temperature-value temperature-value-unit-c']"));
+                    return temp.Text;
+                }
+                position = position + 1;
+            }
+            return "null";
+        }
+
     }
 }
