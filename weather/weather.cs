@@ -53,7 +53,7 @@ namespace weather
 
         [Test]
         [Category("cat1")]
-        public void read_pressure1()
+        public void read_pressure()
         {
             //************ ******************
             string today_pressure;
@@ -109,6 +109,9 @@ namespace weather
             result += " Diff Pressure = " + diff_pressure + "\n";
             Console.WriteLine(result);
             WriteToFile(result);
+
+            //** force to fail
+            Assert.AreEqual(1,0);
 
             driver.Close();
 
