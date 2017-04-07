@@ -16,8 +16,8 @@ $RECYCLE.BIN/
 packages/
 weather/bin/*
 weather/obj/*
-mvc/bin/*
 mvc/obj/*
+mvc/Properties/PublishProfiles/
 
 # Windows shortcuts
 *.lnk
