@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+    <id>mvc.wai</id>
+    <version>1.0.0</version>
+    <title>mvc</title>
+    <authors>wai</authors>
+    <owners>wai</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>mvc demo</description>
+    <releaseNotes>First release</releaseNotes>
+    <copyright>Copyright 2016 (c) Contoso Corporation. All rights reserved.</copyright>
+    <tags>logger logging logs</tags>
+    </metadata>
+</package>

@@ -16,6 +16,8 @@ $RECYCLE.BIN/
 packages/
 weather/bin/*
 weather/obj/*
+mvc/bin/*
+mvc/obj/*
 
 # Windows shortcuts
 *.lnk
